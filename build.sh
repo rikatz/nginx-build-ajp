@@ -13,7 +13,8 @@ tar -xvzf nginx.tar.gz
 tar -xvzf ajp.tar.gz
 
 cd /build/nginx-${NGINX_VERSION}
-./configure --add-dynamic-module=/build/nginx_ajp_module-${AJP_VERSION}
+./configure --add-dynamic-module=/build/nginx_ajp_module-${AJP_VERSION} --prefix=/usr/local/nginx --conf-path=/etc/nginx/nginx.conf --modules-path=/etc/nginx/modules --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --lock-path=/var/lock/nginx.lock --pid-path=/run/nginx.pid --with-debug --with-compat 
+
 make modules
 cp ./objs/ngx_http_ajp_module.so /build/ngx_http_ajp_module.so
 
